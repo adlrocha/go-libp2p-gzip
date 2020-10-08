@@ -32,19 +32,19 @@ type Transport struct {
 }
 
 // New Creates a new tranport with a specific compression level.
-func New(level int) *Transport {
-	return &Transport{level}
+func New() *Transport {
+	return &Transport{}
 }
 
 //NewConn upgrades a raw connection into a compressed connection.
 func (t *Transport) NewConn(raw net.Conn, isServer bool) (compression.CompressedConn, error) {
-	if t.level > 0 && t.level <= 9 {
-		w, err := gzip.NewWriterLevel(raw, t.level)
-		return &compConn{
-			raw: raw,
-			w:   w,
-		}, err
-	}
+	// if t.level > 0 && t.level <= 9 {
+	// 	w, err := gzip.NewWriterLevel(raw, t.level)
+	// 	return &compConn{
+	// 		raw: raw,
+	// 		w:   w,
+	// 	}, err
+	// }
 	return &compConn{
 		raw: raw,
 		w:   gzip.NewWriter(raw),

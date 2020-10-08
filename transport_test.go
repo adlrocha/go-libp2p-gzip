@@ -2,7 +2,6 @@ package gzip
 
 import (
 	"bytes"
-	"compress/gzip"
 	"io"
 	"math/rand"
 	"net"
@@ -12,7 +11,7 @@ import (
 )
 
 func newTestTransport(t *testing.T, typ, bits int) *Transport {
-	return New(6)
+	return New()
 }
 
 // Create a new pair of connected TCP sockets.
@@ -52,8 +51,8 @@ func newConnPair(t *testing.T) (net.Conn, net.Conn) {
 //Test a compressed exchange
 func TestExchange(t *testing.T) {
 	init, resp := newConnPair(t)
-	initTransport := New(gzip.DefaultCompression)
-	respTransport := New(6)
+	initTransport := New()
+	respTransport := New()
 
 	var initConn, respConn compression.CompressedConn
 
@@ -89,7 +88,7 @@ func TestExchange(t *testing.T) {
 // between a compressed and uncompressed connection.
 func TestMismatch(t *testing.T) {
 	init, respConn := newConnPair(t)
-	initTransport := New(gzip.DefaultCompression)
+	initTransport := New()
 
 	var initConn compression.CompressedConn
 
@@ -120,8 +119,8 @@ func TestMismatch(t *testing.T) {
 // Benchmark the use of compression with large plaintext.
 func TestCompressedBenchmark(t *testing.T) {
 	init, resp := newConnPair(t)
-	initTransport := New(gzip.DefaultCompression)
-	respTransport := New(6)
+	initTransport := New()
+	respTransport := New()
 
 	var initConn, respConn compression.CompressedConn
 
