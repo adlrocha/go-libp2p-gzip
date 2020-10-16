@@ -1,10 +1,11 @@
 package gzip
 
 import (
-	"compress/gzip"
 	"net"
 	"sync"
 	"time"
+
+	"github.com/klauspost/compress/gzip"
 
 	"github.com/libp2p/go-libp2p-core/compression"
 	"go.uber.org/multierr"
