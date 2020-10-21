@@ -4,25 +4,16 @@
 [![](https://img.shields.io/badge/project-libp2p-yellow.svg?style=flat-square)](https://libp2p.io/)
 [![](https://img.shields.io/badge/freenode-%23libp2p-yellow.svg?style=flat-square)](http://webchat.freenode.net/?channels=%23libp2p)
 [![Discourse posts](https://img.shields.io/discourse/https/discuss.libp2p.io/posts.svg)](https://discuss.libp2p.io)
-[![GoDoc](https://godoc.org/github.com/libp2p/go-libp2p-noise?status.svg)](https://godoc.org/github.com/libp2p/go-libp2p-noise)
-[![Build Status](https://travis-ci.com/libp2p/go-libp2p-noise.svg?branch=master)](https://travis-ci.com/libp2p/go-libp2p-noise)
 
 > go-libp2p's gzip compressed transport
 
 `go-libp2p-gzip` is a component of the [libp2p project](https://libp2p.io), a
 modular networking stack for developing peer-to-peer applications. It provides a
-compressed transport channel for [`go-libp2p`][go-libp2p] so 
+compressed transport channel for [`go-libp2p`][go-libp2p].
 
 libp2p supports multiple [transport protocols][docs-transport], many of which
-lack native channel security. `go-libp2p-noise` is designed to work with
-go-libp2p's ["transport upgrader"][transport-upgrader], which applies security
-modules (like `go-libp2p-noise`) to an insecure channel. `go-libp2p-noise`
-implements the [`SecureTransport` interface][godoc-securetransport], which
-allows the upgrader to secure any underlying connection.
-
-More detail on the handshake protocol and wire format used is available in the
-[noise-libp2p specification][noise-libp2p-spec]. Details about security protocol
-negotiation in libp2p can be found in the [connection establishment spec][conn-spec].
+lack native channel security. `go-libp2p-gzip` is designed to work with
+go-libp2p's ["transport upgrader"][transport-upgrader].
 
 ## Status
 
@@ -65,7 +56,7 @@ host := libp2p.New(
 
 ## Contribute
 
-Feel free to join in. All welcome. Open an [issue](https://github.com/libp2p/go-libp2p-noise/issues)!
+Feel free to join in. All welcome. Open an [issue](https://github.com/libp2p/go-libp2p-gzip/issues)!
 
 This repository falls under the libp2p [Code of Conduct](https://github.com/libp2p/community/blob/master/code-of-conduct.md).
 
